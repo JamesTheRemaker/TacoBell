@@ -1,24 +1,51 @@
-local Bomb = game:GetObjects("rbxassetid://15177716")[1]
-    Bomb.Parent = game.Players.LocalPlayer.Backpack
-    local BombActivated = false
-    local duration = 10
+local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom Shop Items/Source.lua"))()
 
-    Bomb.Activated:Connect(function()
-        if not BombActivated then
+
+local TacoBell = LoadCustomInstance("rbxassetid://11844024076")
+local TacoBell = game:GetObjects("rbxassetid://11844024076")[1]
+    TacoBell.Parent = game.Players.LocalPlayer.Backpack
+    firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Made By OfficerMesh and TheNamesJames")
+    local TacoBellActivated = false
+    local duration = 101
+
+    TacoBell.Activated:Connect(function()
+        if not TacoBellActivated then
             BombActivated = true
-            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "mm, taco bell")
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Mm, taco bell.")
             wait(2)
-            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "*munches*")
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Munches.")
              wait(2)
-            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "i dont feel so good...")
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "I dont feel so good...")
             wait(2)
             firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "AAAA MY STOMACH")
            wait(1)
-            local Boom = Instance.new("Sound")
-            Boom.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-            Boom.SoundId = "rbxassetid://5715042480"
-            Boom:Play()
-            firesignal(game.ReplicatedStorage.Bricks.DeathHint.OnClientEvent, {"You Died to what you call diareah", "dont eat taco bell", "or you'll clog up the bathroom"})
-            game.Players.LocalPlayer.Character.Humanoid.Health = 0 end
+            local Fard = Instance.new("Sound")
+            Fard.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+            Fard.SoundId = "rbxassetid://8720014366"
+            Fard:Play()
+             local poop = game:GetObjects("rbxassetid://11575104351")[1]
+        poop.Parent = workspace
+        poop.PoopBottom.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0.5)
+        for i,v in pairs(poop:GetChildren()) do
+            v.CanCollide = true
+        end 
+            task.wait(3)
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        game:GetService("ReplicatedStorage").GameStats["Player_" .. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Eating Too Much Taco Bell"
+        debug.setupvalue(
+            getconnections(game:GetService("ReplicatedStorage").Bricks.DeathHint.OnClientEvent)[1].Function,
+            1,
+            {
+                "You died to who you call Diarrhea.",
+                "You ate 46 pounds of tacobell.",
+                "Don't eat taco bell or you will clog up the bathroom.",
 
-end) 
+            }
+        )
+
+        wait(3)
+        TacoBell:Destroy()
+        TacoBellActivated = false
+    end
+end)
