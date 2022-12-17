@@ -1,0 +1,24 @@
+local Bomb = game:GetObjects("rbxassetid://15177716")[1]
+    Bomb.Parent = game.Players.LocalPlayer.Backpack
+    local BombActivated = false
+    local duration = 10
+
+    Bomb.Activated:Connect(function()
+        if not BombActivated then
+            BombActivated = true
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "mm, taco bell")
+            wait(2)
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "*munches*")
+             wait(2)
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "i dont feel so good...")
+            wait(2)
+            firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "AAAA MY STOMACH")
+           wait(1)
+            local Boom = Instance.new("Sound")
+            Boom.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+            Boom.SoundId = "rbxassetid://5715042480"
+            Boom:Play()
+            firesignal(game.ReplicatedStorage.Bricks.DeathHint.OnClientEvent, {"You Died to what you call diareah", "dont eat taco bell", "or you'll clog up the bathroom"})
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0 end
+
+end) 
