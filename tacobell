@@ -1,11 +1,21 @@
 local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom Shop Items/Source.lua"))()
+local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
 
 
 local TacoBell = LoadCustomInstance("rbxassetid://11844024076")
+
+
+-- Create custom shop item
+CustomShop.CreateItem(TacoBell, {
+    Title = "A non suspicious taco",
+    Desc = "TACTICAL NUKE! INCOMING!",
+    Image = "https://tr.rbxcdn.com/d72b5cff6f373f3027d389be9a43555a/420/420/Model/Png",
+    Price = 100,
+    Stack = 6,
+})
+
 local TacoBell = game:GetObjects("rbxassetid://11844024076")[1]
     TacoBell.Parent = game.Players.LocalPlayer.Backpack
-    firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Made By OfficerMesh and TheNamesJames")
     local TacoBellActivated = false
     local duration = 101
 
@@ -32,7 +42,7 @@ local TacoBell = game:GetObjects("rbxassetid://11844024076")[1]
         end 
             task.wait(3)
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
-        game:GetService("ReplicatedStorage").GameStats["Player_" .. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Eating Too Much Taco Bell"
+        game:GetService("ReplicatedStorage").GameStats["Player_" .. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Diarrhea"
         debug.setupvalue(
             getconnections(game:GetService("ReplicatedStorage").Bricks.DeathHint.OnClientEvent)[1].Function,
             1,
